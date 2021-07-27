@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pow(x, y) Programming in Javascript </title>
+</head>
+<body>
+    <h2>Pow(x, y) Programming in Javascript </h2>
+
+    <script>
+        
+        // var myPow = function(x, n) {
+            
+        //     var negative = false;
+        //     if(n == 0)
+        //         return 1; 
+
+        //     if(n < 0) {
+        //         negative = true;
+        //         n = 0 - n; 
+        //     }
+
+        //     var sum = 1;
+
+        //     for(var i=1; i<=n; i++)              
+        //         sum *= x; 
+
+        //     if(negative)
+        //         sum = 1 / sum; 
+
+        //     return sum; 
+        // };
+
+        // console.log(myPow(-1.00000, 2147483647));
+        
+
+        var myPow = function(x, n) {
+    
+                var negative = false;
+                if(n < 0) {
+                    negative = true;
+                    n = 0 - n; 
+                }
+
+                var result  = helper(x, n); 
+
+                if(negative)
+                    result = 1 / result; 
+
+                return result; 
+        };
+
+
+            function helper(x, n) {
+                
+                if(n == 0) return 1;
+                if(n == 1) return x;
+
+                if(n % 2 == 0)
+                    return helper(x * x , Math.floor(n/2));  
+                
+                return x * helper(x * x, Math.floor(n/2)); 
+            }
+
+            console.log(myPow(-1, 2147483647));
+
+    </script>
+</body>
+</html>
